@@ -1,0 +1,8 @@
+local HttpService = game:GetService("HttpService")
+local Games = game:HttpGet("https://raw.githubusercontent.com/Bula-jpg/VibeHub/main/Games.json", true)
+local json = HttpService:JSONDecode(Games)
+local id = tostring(game.PlaceId)
+
+if json[id] ~= nil then
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Bula-jpg/VibeHub/main/scripts/" + json[id].Script))()
+end
